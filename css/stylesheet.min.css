@@ -1,0 +1,860 @@
+@font-face {
+    font-family: "din-2014";
+    src:    url(../assets/font/din_2014_400_normal.eot),
+            url('../assets/font/din_2014_400_normal.eot?#iefix') format('embedded-opentype'),
+            url(../assets/font/din_2014_400_normal.woff2) format('woff2'),
+            url(../assets/font/din_2014_400_normal.woff) format('woff'),
+            url(../assets/font/din_2014_400_normal.ttf) format('truetype'),
+            url('../assets/font/din_2014_400_normal.svg#din-2014') format('svg');
+    font-display: auto;
+    font-stretch: normal;
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "din-2014";
+    src:    url(../assets/font/din_2014_400_italic.eot),
+            url('../assets/font/din_2014_400_italic.eot?#iefix') format('embedded-opentype'),
+            url(../assets/font/din_2014_400_italic.woff2) format('woff2'),
+            url(../assets/font/din_2014_400_italic.woff) format('woff'),
+            url(../assets/font/din_2014_400_italic.ttf) format('truetype'),
+            url('../assets/font/din_2014_400_italic.svg#din-2014') format('svg');
+    font-display: auto;
+    font-stretch: normal;
+    font-weight: 400;
+    font-style: italic;
+}
+:root {
+    --black: rgba(0, 0, 0, 1);
+    --white: rgba(255, 255, 255, 1);
+    --transparent: rgba(0, 0, 0, 0);
+}
+::-webkit-scrollbar {
+    display: none;
+}
+* {
+    box-sizing: border-box;
+}
+html {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: var(--transparent);
+    hyphenate-character: '-';
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+body {
+    background-color: var(--white);
+    padding: 0;
+    margin: 0;
+}
+div, a, svg, p, img {
+    background-color: var(--transparent);
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-spacing: 0;
+    -webkit-transition: opacity .5s ease;
+    -moz-transition: opacity .5s ease;
+    -ms-transition: opacity .5s ease;
+    -o-transition: opacity .5s ease;
+    transition: opacity .5s ease;
+    font-size: 100%;
+    text-align: left;
+    text-transform: none;
+    text-decoration: none;
+    vertical-align: baseline;
+    font-family: "din-2014", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--black);
+}
+.underline {
+    font-style: italic;
+    -webkit-text-decoration: underline;
+    -moz-text-decoration: underline;
+    -ms-text-decoration: underline;
+    -o-text-decoration: underline;
+    text-decoration: underline;
+}
+.translucent {
+    opacity: .25;
+}
+p:not(:nth-child(1)) {
+    text-indent: calc((var(--maxWidth) / var(--baseValue)) * 2);
+}
+svg {
+    position: absolute;
+    stroke: #000;
+    stroke-width: calc((var(--maxWidth) / var(--baseValue)) * .01);
+}
+a,
+svg {
+    pointer-events: all;
+}
+a:hover,
+svg:hover {
+    opacity: .3;
+    cursor: pointer;
+}
+.navTR,
+.toggle {
+    display: block;
+}
+.navTR,
+.navBR {
+    text-align: right;
+}
+.lightboxCount {
+    left: 50%;
+    bottom: 0;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    text-indent: 0 !important;
+    text-align: center;
+}
+.navTR,
+.lightboxPrev,
+.lightboxNext,
+.navBL,
+.lightboxCount,
+.navBR,
+.lightboxClose {
+    position: fixed;
+    margin: 0 !important;
+    z-index: 2;
+}
+.lightboxPrev,
+.lightboxNext {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.lightboxPrev:active,
+.lightboxNext:active {
+    -webkit-transform: translateX(0%) translateY(-50%) scale(.9);
+    -moz-transform: translateX(0%) translateY(-50%) scale(.9);
+    -ms-transform: translateX(0%) translateY(-50%) scale(.9);
+    -o-transform: translateX(0%) translateY(-50%) scale(.9);
+    transform: translateX(0%) translateY(-50%) scale(.9);
+}
+.container {
+    position: relative;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    z-index: 0;
+}
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(var(--baseValue), calc(var(--maxWidth) / var(--baseValue)));
+}
+.lightbox {
+    background-color: var(--white);
+    position: fixed;
+    display: none;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+}
+.lightbox img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 4;
+}
+.pageFader {
+    background-color: var(--white);
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    pointer-events: none;
+    z-index: 99;
+}
+.pageFader.fade-out {
+    opacity: 0;
+}
+.pageFader.fade-in {
+    opacity: 1;
+}
+
+
+
+
+
+
+
+/* device specific after this */
+
+
+
+
+
+
+
+@media only screen and (max-width:767.9px) {
+    * {
+        hyphenate-character: '-';
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+    }
+    svg {
+        width: calc((var(--maxWidth) / var(--baseValue)) * .75); /* originally 1.5 */
+    }
+    #svgMail {
+        right: calc((var(--maxWidth) / var(--baseValue)) * 2.36); /* 4.72 */
+    }
+    #svgTel {
+        right: calc((var(--maxWidth) / var(--baseValue)) * 1.125); /* 2.25 */
+    }
+    #svgSocial {
+        right: calc((var(--maxWidth) / var(--baseValue)) * 0);
+    }
+    .navTR,
+    .lightboxPrev,
+    .lightboxNext,
+    .navBL,
+    .navBR {
+        height: calc((var(--maxWidth) / var(--baseValue)) * .75); /* originally 1.5 */
+    }
+    .lightboxClose {
+        top: calc((var(--maxWidth) / var(--baseValue)) * 1);
+        right: calc((var(--maxWidth) / var(--baseValue)) * 1);
+    }
+    .lightboxPrev,
+    .lightboxNext,
+    .lightboxCount,
+    .toggle {
+        display: none;
+    }
+    .lightbox img {
+        max-width: calc((var(--maxWidth) / var(--baseValue)) * 14);
+        max-height: calc(100vh - calc(var(--maxWidth) / var(--baseValue)) * 6);
+    }
+    .imgContainer {
+        pointer-events: none;
+        cursor: default;
+    }
+}
+@media only screen and (min-width:768px) and (max-width:1159.9px) {
+    svg {
+        width: calc((var(--maxWidth) / var(--baseValue)) * 2);
+    }
+    #svgMail {
+        right: calc((var(--maxWidth) / var(--baseValue)) * 6.3);
+    }
+    #svgTel {
+        right: calc((var(--maxWidth) / var(--baseValue)) * 3);
+    }
+    #svgSocial {
+        right: calc((var(--maxWidth) / var(--baseValue)) * 0);
+    }
+    .navTR,
+    .lightboxPrev,
+    .lightboxNext,
+    .navBL,
+    .navBR {
+        height: calc((var(--maxWidth) / var(--baseValue)) * 1); /* originally 2 */
+    }
+    .lightboxClose {
+        top: calc((var(--maxWidth) / var(--baseValue)) * 2);
+        right: calc((var(--maxWidth) / var(--baseValue)) * 2);
+    }
+    .lightboxPrev {
+        left: calc((var(--maxWidth) / var(--baseValue)) * 2);
+    }
+    .lightboxNext {
+        right: calc((var(--maxWidth) / var(--baseValue)) * 2);
+    }
+    .lightboxCount {
+        height: calc((var(--maxWidth) / var(--baseValue)) * 3.5);
+    }
+    .lightbox img {
+        max-width: calc((var(--maxWidth) / var(--baseValue)) * 34);
+        max-height: calc(100vh - calc(var(--maxWidth) / var(--baseValue)) * 12);
+    }
+}
+@media only screen and (min-width:1160px) {
+    svg {
+        width: calc((var(--maxWidth) / var(--baseValue)) * 1);
+    }
+    #svgMail {
+        right: calc((var(--maxWidth) / var(--baseValue)) * 3.15);
+    }
+    #svgTel {
+        right: calc((var(--maxWidth) / var(--baseValue)) * 1.5);
+    }
+    #svgSocial {
+        right: calc((var(--maxWidth) / var(--baseValue)) * 0);
+    }
+    .navTR,
+    .lightboxPrev,
+    .lightboxNext,
+    .navBL,
+    .navBR {
+        height: calc((var(--maxWidth) / var(--baseValue)) * 1);
+    }
+    .navTR {
+        top: calc((var(--maxWidth) / var(--baseValue)) * .8);
+        right: calc((calc(var(--maxWidth) / var(--baseValue)) * 1) + var(--margin));
+    }
+    .lightboxClose {
+        top: calc((var(--maxWidth) / var(--baseValue)) * 1);
+        right: calc((calc(var(--maxWidth) / var(--baseValue)) * 1) + var(--margin));
+    }
+    .lightboxPrev {
+        left: calc((calc(var(--maxWidth) / var(--baseValue)) * 1) + var(--margin));
+    }
+    .lightboxNext {
+        right: calc((calc(var(--maxWidth) / var(--baseValue)) * 1) + var(--margin));
+    }
+    .navBL {
+        bottom: calc((var(--maxWidth) / var(--baseValue)) * .75);
+        left: calc((calc(var(--maxWidth) / var(--baseValue)) * .95) + var(--margin));
+    }/*
+    .lightboxCount {
+        height: calc((var(--maxWidth) / var(--baseValue)) * 1.75) !important;
+        font-size: calc((var(--maxWidth) / var(--baseValue)) * .45) !important;
+        line-height: calc((var(--maxWidth) / var(--baseValue)) * .5) !important;
+    }*/
+    .navBR {
+        bottom: calc((var(--maxWidth) / var(--baseValue)) * .8);
+        right: calc((calc(var(--maxWidth) / var(--baseValue)) * .85) + var(--margin));
+    }
+    .lightbox img {
+        max-width: calc((var(--maxWidth) / var(--baseValue)) * 38);
+        max-height: calc(100vh - calc(var(--maxWidth) / var(--baseValue)) * 6);
+    }
+}
+
+
+
+
+
+
+
+/*                                                  NEW NEW NEW                                         */
+
+/* desktop */ /*                                                                    SEEMS FINE TO ME WITH THESE SIZES *//* ?????? desktop values exist twice? upward from here somewhere... *//* figure out before moving into "NAV (TOP RIGHT BOTTOM LEFT) SETTINGS " */
+
+/* copied down, a few lines from here
+@media only screen and (min-width:1160px) {
+    .navTR {
+        top: calc((var(--maxWidth) / var(--baseValue)) * .86);
+        right: calc((var(--maxWidth) / var(--baseValue)) * .97);
+    }
+    .navBL {
+        bottom: calc((var(--maxWidth) / var(--baseValue)) * .85);
+        left: calc((var(--maxWidth) / var(--baseValue)) * .94);
+    }
+    .navTR, .navBL {
+        height: calc((var(--maxWidth) / var(--baseValue)) * .75);
+    }
+    .lightboxCount {
+        height: calc((var(--maxWidth) / var(--baseValue)) * 2);
+        font-size: calc((var(--maxWidth) / var(--baseValue)) * .45);
+        line-height: calc((var(--maxWidth) / var(--baseValue)) * .5);
+        margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 1);
+    }
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*                                                                                                                      NEW CODE AFTER THIS */
+/*                                                                                                                      NEW CODE AFTER THIS */
+/*                                                                                                                      NEW CODE AFTER THIS */
+
+/*                                                                                                                      NAV (TOP RIGHT BOTTOM LEFT) SETTINGS */
+
+/*                                                                                                                      PHONE */
+@media only screen and (max-width:767.9px) {
+    .navTR {
+        top: calc((var(--maxWidth) / var(--baseValue)) * .75);
+        right: calc((var(--maxWidth) / var(--baseValue)) * .95);
+    }
+    .navBL {
+        bottom: calc((var(--maxWidth) / var(--baseValue)) * .9);
+        left: calc((var(--maxWidth) / var(--baseValue)) * .9);
+    }
+    .navBR {
+        bottom: calc((var(--maxWidth) / var(--baseValue)) * .8);
+        right: calc((var(--maxWidth) / var(--baseValue)) * .75);
+    }
+}
+/*                                                                                                                      TABLET */
+@media only screen and (min-width:768px) and (max-width:1159.9px) {
+    .navTR {
+        top: calc((var(--maxWidth) / var(--baseValue)) * 1.6);
+        right: calc((var(--maxWidth) / var(--baseValue)) * 2.05);
+    }
+    .navBL {
+        bottom: calc((var(--maxWidth) / var(--baseValue)) * 1.6);
+        left: calc((var(--maxWidth) / var(--baseValue)) * 1.85);
+    }
+    .navBR {
+        bottom: calc((var(--maxWidth) / var(--baseValue)) * 1.65);
+        right: calc((var(--maxWidth) / var(--baseValue)) * 1.8);
+    }
+}
+/*                                                                                                                      DESKTOP */
+@media only screen and (min-width:1160px) {
+
+
+
+    /* up top, a few lines from here */
+    .navTR {
+        top: calc((var(--maxWidth) / var(--baseValue)) * .86);
+        right: calc((var(--maxWidth) / var(--baseValue)) * .97);
+    }
+    .navBL {
+        bottom: calc((var(--maxWidth) / var(--baseValue)) * .85);
+        left: calc((var(--maxWidth) / var(--baseValue)) * .94);
+    }
+    .navTR, .navBL {
+        height: calc((var(--maxWidth) / var(--baseValue)) * .75);
+    }
+    .lightboxCount {
+        height: calc((var(--maxWidth) / var(--baseValue)) * 2);
+        font-size: calc((var(--maxWidth) / var(--baseValue)) * .45); /* base value = 1 */
+        line-height: calc((var(--maxWidth) / var(--baseValue)) * .5);
+        margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 1);
+    }
+
+
+
+}
+/*                                                                                                                      ULTRAWIDE */
+@media only screen and (min-width:1440px) and (min-aspect-ratio:21/9) {
+    .navTR {
+        right: calc(calc((var(--maxWidth) / var(--baseValue)) * .97) + var(--margin));
+    }
+    .navBL {
+        left: calc(calc((var(--maxWidth) / var(--baseValue)) * .94) + var(--margin));
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/*                                                                                                                      CONTENT CONTAINER SETTINGS */
+
+/*                                                                                                                      PHONE */
+@media only screen and (max-width:767.9px) {
+    .contentContainer {
+        margin: calc((var(--maxWidth) / var(--baseValue)) * .9) calc((var(--maxWidth) / var(--baseValue)) * 1) calc((var(--maxWidth) / var(--baseValue)) * 3) calc((var(--maxWidth) / var(--baseValue)) * 1);
+    }
+}
+/*                                                                                                                      TABLET */
+@media only screen and (min-width:768px) and (max-width:1159.9px) {
+    .contentContainer {
+        margin: calc((var(--maxWidth) / var(--baseValue)) * 1.8) calc((var(--maxWidth) / var(--baseValue)) * 16.5) calc((var(--maxWidth) / var(--baseValue)) * 5) calc((var(--maxWidth) / var(--baseValue)) * 2);
+    }
+}
+/*                                                                                                                      DESKTOP */
+@media only screen and (min-width:1160px) {
+    .contentContainer {
+        margin: calc((var(--maxWidth) / var(--baseValue)) * .86) calc((var(--maxWidth) / var(--baseValue)) * 22.25) calc((var(--maxWidth) / var(--baseValue)) * 2.2) calc((var(--maxWidth) / var(--baseValue)) * .94);
+    }
+}
+/*                                                                                                                      ULTRAWIDE */
+@media only screen and (min-width:1440px) and (min-aspect-ratio:21/9) {
+    .contentContainer {
+        margin: calc((var(--maxWidth) / var(--baseValue)) * .8) calc((calc(var(--maxWidth) / var(--baseValue)) * 28.6) + var(--margin)) calc((var(--maxWidth) / var(--baseValue)) * 2.5) calc((calc(var(--maxWidth) / var(--baseValue)) * 1) + var(--margin));
+    }
+}
+
+/*                                                                                                                      GRID SETTINGS */
+
+/*                                                                                                                      PHONE */
+@media only screen and (max-width:767.9px) {
+    .gridContainer:nth-of-type(1) {
+        padding-top: calc((var(--maxWidth) / var(--baseValue)) * 3);
+    }
+    .gridContainer:not(:nth-of-type(1)) {
+        margin-top: calc((var(--maxWidth) / var(--baseValue)) * 16);
+    }
+    .gridContainer:nth-of-type(4) {
+        padding-bottom: calc((var(--maxWidth) / var(--baseValue)) * 3.2);
+    }
+    .buechehof {
+        grid-template-rows: repeat(218, calc(var(--maxWidth) / var(--baseValue)));
+    }
+    .wartenbergstrasse {
+        grid-template-rows: repeat(112, calc(var(--maxWidth) / var(--baseValue)));
+    }
+    .oubliettes {
+        grid-template-rows: repeat(134, calc(var(--maxWidth) / var(--baseValue)));
+    }
+    .gartenweg {
+        grid-template-rows: repeat(190, calc(var(--maxWidth) / var(--baseValue)));
+    }
+    .halle_8 {
+        grid-template-rows: repeat(465 calc(var(--maxWidth) / var(--baseValue)));
+    }
+}
+/*                                                                                                                      ALLL OTHER DEVICES */
+@media only screen and (min-width:768px) {
+    .gridContainer:not(:nth-of-type(1)) {
+        margin-top: calc((var(--maxWidth) / var(--baseValue)) * 14);
+    }
+    .buechehof {
+        grid-template-rows: repeat(117, calc(var(--maxWidth) / var(--baseValue)));
+    }
+    .wartenbergstrasse {
+        grid-template-rows: repeat(58, calc(var(--maxWidth) / var(--baseValue)));
+    }
+    .oubliettes {
+        grid-template-rows: repeat(56, calc(var(--maxWidth) / var(--baseValue)));
+    }
+    .gartenweg {
+        grid-template-rows: repeat(115, calc(var(--maxWidth) / var(--baseValue))); /* 118 as fix, but fix padding bottom after all projects */
+    }
+    .halle_8 {
+        grid-template-rows: repeat(150, calc(var(--maxWidth) / var(--baseValue)));
+    }
+}
+/*                                                                                                                      TABLET */
+@media only screen and (min-width:768px) and (max-width:1159.9px) {
+    .container {
+        margin: 0 calc((var(--maxWidth) / var(--baseValue)) * 1);
+    }
+    .gridContainer:nth-of-type(1) {
+        padding-top: calc((var(--maxWidth) / var(--baseValue)) * 4);
+    }
+    .gridContainer:nth-of-type(4) {
+        padding-bottom: calc((var(--maxWidth) / var(--baseValue)) * 5.4);
+    }
+}
+/*                                                                                                                      DESKTOP */
+@media only screen and (min-width:1160px) {
+    .gridContainer:nth-of-type(1) {
+            padding-top: calc((var(--maxWidth) / var(--baseValue)) * 3);
+        }
+    .gridContainer:nth-of-type(4) {
+        padding-bottom: calc((var(--maxWidth) / var(--baseValue)) * 2.7);
+    }
+}
+@media only screen and (min-width:1160px) and (min-aspect-ratio:21/9) {
+    .container {
+        /* changed form margin to padding to allow scrolling from all positions */
+        padding: 0 var(--margin);
+    }
+}
+
+/*                                                                                                                      FONT SETTINGS */
+
+/*                                                                                                                      PHONE */
+@media only screen and (max-width:767.9px) {
+    .fontS {
+        font-size: calc((var(--maxWidth) / var(--baseValue)) * .45); /* base value = x1 */
+        line-height: calc((var(--maxWidth) / var(--baseValue)) * .5);
+        margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 1);
+    }
+    .fontM {
+        font-size: calc((var(--maxWidth) / var(--baseValue)) * .675); /* base value x1.5 */
+        line-height: calc((var(--maxWidth) / var(--baseValue)) * .75);
+        margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 1);
+    }
+    .fontL {
+        font-size: calc((var(--maxWidth) / var(--baseValue)) * 1.35); /* base value x3 */
+        line-height: calc((var(--maxWidth) / var(--baseValue)) * 1.5);
+        margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 1);
+    }
+}
+/*                                                                                                                      TABLET */
+@media only screen and (min-width:768px) and (max-width:1159.9px) {
+    .fontS {
+        font-size: calc((var(--maxWidth) / var(--baseValue)) * .45); /* base value = x1 */
+        line-height: calc((var(--maxWidth) / var(--baseValue)) * .5);
+        margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 1);
+    }
+    .fontM {
+        font-size: calc((var(--maxWidth) / var(--baseValue)) * .675); /* base value x1.5 */
+        line-height: calc((var(--maxWidth) / var(--baseValue)) * .75);
+        margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 1);
+    }
+    .fontL {
+        font-size: calc((var(--maxWidth) / var(--baseValue)) * 1.35); /* base value x3 */
+        line-height: calc((var(--maxWidth) / var(--baseValue)) * 1.5);
+        margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 1);
+    }
+}
+/*                                                                                                                      DESKTOP */
+@media only screen and (min-width:1160px) {
+    .fontS {
+        font-size: calc((var(--maxWidth) / var(--baseValue)) * .45); /* base value = x1 */
+        line-height: calc((var(--maxWidth) / var(--baseValue)) * .5);
+        margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 1);
+    }
+    .fontM {
+        font-size: calc((var(--maxWidth) / var(--baseValue)) * .675); /* base value x1.5 */
+        line-height: calc((var(--maxWidth) / var(--baseValue)) * .75);
+        margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 1);
+    }
+    .fontL {
+        font-size: calc((var(--maxWidth) / var(--baseValue)) * 1.35); /* base value x3 */
+        line-height: calc((var(--maxWidth) / var(--baseValue)) * 1.5);
+        margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 1);
+    }
+    .fontXL {
+        font-size: calc((var(--maxWidth) / var(--baseValue)) * 2.7); /* base value x3 */
+        line-height: calc((var(--maxWidth) / var(--baseValue)) * 3);
+        margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 2);
+    }
+    .fontXXL {
+        font-size: calc((var(--maxWidth) / var(--baseValue)) * 5.4); /* base value x3 */
+        line-height: calc((var(--maxWidth) / var(--baseValue)) * 6);
+        margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 4);
+    }
+}
+/*                                                                                                                      ULTRAWIDE */
+@media only screen and (min-width:1440px) and (min-aspect-ratio:21/9) {
+    .fontS {
+        font-size: calc((var(--maxWidth) / var(--baseValue)) * .45); /* base value = x1 */
+        line-height: calc((var(--maxWidth) / var(--baseValue)) * .5);
+        margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 1);
+    }
+    .fontM {
+        font-size: calc((var(--maxWidth) / var(--baseValue)) * .675); /* base value x1.5 */
+        line-height: calc((var(--maxWidth) / var(--baseValue)) * .75);
+        margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 1);
+    }
+    .fontL {
+        font-size: calc((var(--maxWidth) / var(--baseValue)) * 1.35); /* base value x3 */
+        line-height: calc((var(--maxWidth) / var(--baseValue)) * 1.5);
+        margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 1);
+    }
+}
+
+/*                                                                                                                      ROOT SETTINGS */
+
+/*                                                                                                                      PHONE */
+@media only screen and (max-width:767.9px) {
+    :root {
+        --baseValue: 16;
+        --maxWidth: 100vw;
+        --margin: 0vw;
+    }
+}
+/*                                                                                                                      TABLET */
+@media only screen and (min-width:768px) and (max-width:1159.9px) {
+    :root {
+        --baseValue: 44;
+        --maxWidth: calc(100vw - calc((100vw / var(--baseValue)) * 2));
+        --margin: 0vw;
+    }
+}
+/*                                                                                                                      DESKTOP */
+@media only screen and (min-width:1160px) {
+    :root {
+        --baseValue: 44;
+        --maxWidth: 100vw;
+        --margin: 0vw;
+    }
+}
+/*                                                                                                                      ULTRAWIDE */
+@media only screen and (min-width:1440px) and (min-aspect-ratio:21/9) {
+    :root {
+        --baseValue: 44;
+        --maxWidth: 50vw;
+        --margin: 25vw;
+        /*
+        --fontSize: .5vw;
+        */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.contentContainer {
+    position: absolute;
+}
+
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* implement this for all devices!!!! its great */
+/* sticks text baseline to bottom end of container, desktop only */
+.stickyContainer.fontL { /* no space bweteen the two classes for correct implmentation*/
+    margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * -0.28);
+    margin-top: calc((var(--maxWidth) / var(--baseValue)) * -0.28);
+}
+.stickyContainer.fontM { /* no space bweteen the two classes for correct implmentation*/
+    margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * -0.14);
+    margin-top: calc((var(--maxWidth) / var(--baseValue)) * -0.14);
+}
+.stickyContainer.fontS { /* no space bweteen the two classes for correct implmentation*/
+    margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * -0.1);
+    margin-top: calc((var(--maxWidth) / var(--baseValue)) * -0.1);
+}
+
+
+/* todo
+
+info / impressum spacing from bottom end, overlap with info / portfolio, add spacing of 1 grid Square, change CONTENT CONTAINER SETTINGS to padding instead of margin fixes ability to add this spacing.???
+
+font line height, desktop fixed, adapt other devices
+font space from corners moving when resizing, desktop fixed, adapt other devices, mainly sub pixel spacing
+fontsize has to be tied to maxWidth despite formula from old code, DESKTOP GOOD LIKE THIS, ADAPT OTHER DEVICES:
+
+SCROLLBAR HAS PADDING FROM LEFT SIDE ON IPAD SIZE DEVICES, FIX!!!
+
+update, jan 6., font size on all devices fine. perhaps adjust nav size, but just perhaps
+    mobile
+
+        nL, cL 1.35, 1.5
+        nM, cM, nS, cS .675, .75
+
+    tablet
+
+        nL, cL 1.8, 2
+        nM, cM, nS, cS .9, 1
+
+    desktop & ultrawide
+
+        cL 1.8, 2
+        nL, nM, cM .9, 1
+        nS, cS .45, .5
+
+        */
+        /* pairs 
+
+        phone
+        
+
+                            .navFontL,
+                            .contentFontL {
+                                font-size: calc((var(--maxWidth) / var(--gridWidth)) * 1.35);
+                                line-height: calc((var(--maxWidth) / var(--gridWidth)) * 1.5);
+                                margin-bottom: calc((var(--maxWidth) / var(--gridWidth)) * 1)
+                            }
+
+                            .navFontM,
+                            .contentFontM,
+                            .navFontS,
+                            .contentFontS {
+                                font-size: calc((var(--maxWidth) / var(--gridWidth)) * .675);
+                                line-height: calc((var(--maxWidth) / var(--gridWidth)) * .75);
+                                margin-bottom: calc((var(--maxWidth) / var(--gridWidth)) * 1)
+                            }
+        
+
+tablet
+                            .navFontL,
+                            .contentFontL {
+                                font-size: calc((var(--maxWidth) / var(--gridWidth)) * 1.8);
+                                line-height: calc((var(--maxWidth) / var(--gridWidth)) * 2);
+                                margin-bottom: calc((var(--maxWidth) / var(--gridWidth)) * 1)
+                            }
+
+                            .navFontM,
+                            .contentFontM,
+                            .navFontS,
+                            .contentFontS {
+                                font-size: calc((var(--maxWidth) / var(--gridWidth)) * .9);
+                                line-height: calc((var(--maxWidth) / var(--gridWidth)) * 1);
+                                margin-bottom: calc((var(--maxWidth) / var(--gridWidth)) * 1)
+                            }
+
+
+        desktop
+
+                                    .contentFontL {
+                                font-size: calc((var(--maxWidth) / var(--gridWidth)) * 1.8);
+                                line-height: calc((var(--maxWidth) / var(--gridWidth)) * 2);
+                                margin-bottom: calc((var(--maxWidth) / var(--gridWidth)) * 1)
+                            }
+
+                            .navFontL,
+                            .navFontM,
+                            .contentFontM {
+                                font-size: calc((var(--maxWidth) / var(--gridWidth)) * .9);
+                                line-height: calc((var(--maxWidth) / var(--gridWidth)) * 1);
+                                margin-bottom: calc((var(--maxWidth) / var(--gridWidth)) * 1)
+                            }
+
+                            .navFontS,
+                            .contentFontS {
+                                font-size: calc((var(--maxWidth) / var(--gridWidth)) * .45);
+                                line-height: calc((var(--maxWidth) / var(--gridWidth)) * .5);
+                                margin-bottom: calc((var(--maxWidth) / var(--gridWidth)) * 1)
+                            }
+
+
+
+
+        */
