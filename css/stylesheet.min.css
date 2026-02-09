@@ -33,11 +33,11 @@
     display: none;
 }
 * {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     box-sizing: border-box;
 }
 html {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -419,12 +419,12 @@ svg:hover {
 /*                                                                                                                      PHONE */
 @media only screen and (max-width:767.9px) {
     .navTR {
-        top: calc((var(--maxWidth) / var(--baseValue)) * .75);
-        right: calc((var(--maxWidth) / var(--baseValue)) * .95);
+        top: calc((var(--maxWidth) / var(--baseValue)) * .86);
+        right: calc((var(--maxWidth) / var(--baseValue)) * .97);
     }
     .navBL {
-        bottom: calc((var(--maxWidth) / var(--baseValue)) * .9);
-        left: calc((var(--maxWidth) / var(--baseValue)) * .9);
+        bottom: calc((var(--maxWidth) / var(--baseValue)) * .86);
+        left: calc((var(--maxWidth) / var(--baseValue)) * .96);
     }
     .navBR {
         bottom: calc((var(--maxWidth) / var(--baseValue)) * .8);
@@ -434,12 +434,12 @@ svg:hover {
 /*                                                                                                                      TABLET */
 @media only screen and (min-width:768px) and (max-width:1159.9px) {
     .navTR {
-        top: calc((var(--maxWidth) / var(--baseValue)) * 1.6);
-        right: calc((var(--maxWidth) / var(--baseValue)) * 2.05);
+        top: calc((var(--maxWidth) / var(--baseValue)) * 1.86);
+        right: calc((var(--maxWidth) / var(--baseValue)) * 2.09);
     }
     .navBL {
         bottom: calc((var(--maxWidth) / var(--baseValue)) * 1.6);
-        left: calc((var(--maxWidth) / var(--baseValue)) * 1.85);
+        left: calc((var(--maxWidth) / var(--baseValue)) * 1.945);
     }
     .navBR {
         bottom: calc((var(--maxWidth) / var(--baseValue)) * 1.65);
@@ -453,12 +453,12 @@ svg:hover {
 
     /* up top, a few lines from here */
     .navTR {
-        top: calc((var(--maxWidth) / var(--baseValue)) * .86);
-        right: calc((var(--maxWidth) / var(--baseValue)) * .97);
+        top: calc((var(--maxWidth) / var(--baseValue)) * .87);
+        right: calc((var(--maxWidth) / var(--baseValue)) * .99);
     }
     .navBL {
         bottom: calc((var(--maxWidth) / var(--baseValue)) * .85);
-        left: calc((var(--maxWidth) / var(--baseValue)) * .94);
+        left: calc((var(--maxWidth) / var(--baseValue)) * .945);
     }
     .navTR, .navBL {
         height: calc((var(--maxWidth) / var(--baseValue)) * .75);
@@ -476,17 +476,23 @@ svg:hover {
 /*                                                                                                                      ULTRAWIDE */
 @media only screen and (min-width:1440px) and (min-aspect-ratio:21/9) {
     .navTR {
-        right: calc(calc((var(--maxWidth) / var(--baseValue)) * .97) + var(--margin));
+        top: calc((var(--maxWidth) / var(--baseValue)) * .87);
+        right: calc(calc((var(--maxWidth) / var(--baseValue)) * 1.02) + var(--margin));
     }
     .navBL {
-        left: calc(calc((var(--maxWidth) / var(--baseValue)) * .94) + var(--margin));
+        bottom: calc((var(--maxWidth) / var(--baseValue)) * .82);
+        left: calc(calc((var(--maxWidth) / var(--baseValue)) * .96) + var(--margin));
     }
 }
 
 
 
 
-
+* {
+    gap: 0 !important;
+    row-gap: 0 !important;
+    column-gap: 0 !important;
+}
 
 
 
@@ -557,7 +563,7 @@ svg:hover {
         grid-template-rows: repeat(117, calc(var(--maxWidth) / var(--baseValue)));
     }
     .wartenbergstrasse {
-        grid-template-rows: repeat(58, calc(var(--maxWidth) / var(--baseValue)));
+        grid-template-rows: repeat(62, calc(var(--maxWidth) / var(--baseValue)));
     }
     .oubliettes {
         grid-template-rows: repeat(56, calc(var(--maxWidth) / var(--baseValue)));
@@ -575,7 +581,7 @@ svg:hover {
         margin: 0 calc((var(--maxWidth) / var(--baseValue)) * 1);
     }
     .gridContainer:nth-of-type(1) {
-        padding-top: calc((var(--maxWidth) / var(--baseValue)) * 4);
+        padding-top: calc((var(--maxWidth) / var(--baseValue)) * 1);
     }
     .gridContainer:nth-of-type(4) {
         padding-bottom: calc((var(--maxWidth) / var(--baseValue)) * 5.4);
@@ -584,7 +590,7 @@ svg:hover {
 /*                                                                                                                      DESKTOP */
 @media only screen and (min-width:1160px) {
     .gridContainer:nth-of-type(1) {
-            padding-top: calc((var(--maxWidth) / var(--baseValue)) * 3);
+            padding-top: calc((var(--maxWidth) / var(--baseValue)) * 1); /* default was 3, 1 is also good, 0 as a test */
         }
     .gridContainer:nth-of-type(4) {
         padding-bottom: calc((var(--maxWidth) / var(--baseValue)) * 2.7);
@@ -768,10 +774,18 @@ svg:hover {
 info / impressum spacing from bottom end, overlap with info / portfolio, add spacing of 1 grid Square, change CONTENT CONTAINER SETTINGS to padding instead of margin fixes ability to add this spacing.???
 
 font line height, desktop fixed, adapt other devices
-font space from corners moving when resizing, desktop fixed, adapt other devices, mainly sub pixel spacing
-fontsize has to be tied to maxWidth despite formula from old code, DESKTOP GOOD LIKE THIS, ADAPT OTHER DEVICES:
+font space from corners moving when resizing, all devices fixed, double check from windows, icons bottom left remaining on all devices,  sub pixel spacing
 
-SCROLLBAR HAS PADDING FROM LEFT SIDE ON IPAD SIZE DEVICES, FIX!!!
+SCROLLBAR HAS PADDING FROM LEFT SIDE ON IPAD SIZE DEVICES, double check after fix!!!
+
+
+
+FUCK CURRENT IPAD STYLING, DESKTOP ÜBERNEHMEN, SCHEISSE VOM RAND HIER, WEG DAMIT
+
+abstand von oberstem, also padding top von erstem projekt zu schrift, TR, muss derselbe sein wie abstand zwischen oberem bildschirmrand und TR, subpixel dingens, DITO ZU UNTERST, LETZTES PROJEKT
+PROBLEM ENTSTAND DURCH RANDOMIZER, VORHER WENIGER SICHTBAR WEIL KEIN BILD IN NÄHE
+randomizer anders einstellen, nur die projekte die passen als erstes definieren als random...!
+current top fix: suche:     default was 3, 1 is also good, 0 as a test     im css, bottom remains
 
 update, jan 6., font size on all devices fine. perhaps adjust nav size, but just perhaps
     mobile

@@ -1,4 +1,4 @@
-/*
+
 
 // ====== GRID DEBUG PANEL - COMPLETE WITH DRAG NO-SCROLL ======
 
@@ -258,4 +258,4 @@
     window.addEventListener('resize', () => setTimeout(prepareElements, 200));
 })();
 
-*/
+
