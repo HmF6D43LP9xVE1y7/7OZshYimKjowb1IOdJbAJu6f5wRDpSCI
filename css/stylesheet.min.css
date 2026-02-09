@@ -583,7 +583,7 @@ svg:hover {
     .gridContainer:nth-of-type(1) {
         padding-top: calc((var(--maxWidth) / var(--baseValue)) * 1);
     }
-    .gridContainer:nth-of-type(4) {
+    .gridContainer:nth-of-type(5) {
         padding-bottom: calc((var(--maxWidth) / var(--baseValue)) * 5.4);
     }
 }
@@ -592,7 +592,7 @@ svg:hover {
     .gridContainer:nth-of-type(1) {
             padding-top: calc((var(--maxWidth) / var(--baseValue)) * 1); /* default was 3, 1 is also good, 0 as a test */
         }
-    .gridContainer:nth-of-type(4) {
+    .gridContainer:nth-of-type(5) {
         padding-bottom: calc((var(--maxWidth) / var(--baseValue)) * 2.7);
     }
 }
@@ -768,6 +768,20 @@ svg:hover {
     margin-top: calc((var(--maxWidth) / var(--baseValue)) * -0.1);
 }
 
+/* also add this     stickyText.style.top = "calc((var(--maxWidth) / var(--baseValue)) * 1)";
+    for each device as fontL spacing from top is too large, sollte wie navTR / BR sein. 
+
+    example: */
+
+.stickyContainer.fontL {
+    top: calc((var(--maxWidth) / var(--baseValue)) * .7); /* ungefähr */
+}
+.stickyContainer.fontM {
+    top: calc((var(--maxWidth) / var(--baseValue)) * 0.87); /* übernehmen von TR / BL */
+}
+.stickyContainer.fontS {
+    top: calc((var(--maxWidth) / var(--baseValue)) * 1); /* ungefähr */
+}
 
 /* todo
 
