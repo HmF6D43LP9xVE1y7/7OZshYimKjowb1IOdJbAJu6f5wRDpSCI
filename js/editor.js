@@ -22,7 +22,7 @@
     });
 
     panel.innerHTML = `
-        <div id="debugTitle" style="font-weight:bold;margin-bottom:10px;font-size:14px;"></div>
+        <div id="debugTitle" style="font-weight:bold;margin-bottom:0px;font-size:0px;"></div>
         <div style="margin-bottom:8px">
             <label style="color:#ffffff;">Col: </label>
             <input id="colStart" type="number" min="1" style="width:50px;margin:0 3px;text-align:center;font-size:12px;color:#000;background:#fff;">
@@ -41,9 +41,7 @@
             <button id="moveDown" style="background:#444;color:#fff;flex:1;padding:4px;">↓</button>
             <button id="moveRight" style="background:#444;color:#fff;flex:1;padding:4px;">→</button>
             <button id="clearBtn" style="background:#ff4444;color:#fff;flex:1;padding:4px;">Clear</button>
-        </div>
-        <div style="font-size:11px;color:#ccc;margin-top:8px;">Click & drag elements (no scroll during drag)</div>
-    `;
+        </div>`;
     document.body.appendChild(panel);
 
     // Elements
