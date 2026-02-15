@@ -503,25 +503,25 @@ svg:hover {
 /*                                                                                                                      PHONE */
 @media only screen and (max-width:767.9px) {
     .contentContainer {
-        margin: calc((var(--maxWidth) / var(--baseValue)) * .9) calc((var(--maxWidth) / var(--baseValue)) * 1) calc((var(--maxWidth) / var(--baseValue)) * 3) calc((var(--maxWidth) / var(--baseValue)) * 1);
+        margin: calc((var(--maxWidth) / var(--baseValue)) * .86) calc((var(--maxWidth) / var(--baseValue)) * 1) calc((var(--maxWidth) / var(--baseValue)) * 3) calc((var(--maxWidth) / var(--baseValue)) * .96);
     }
 }
 /*                                                                                                                      TABLET */
 @media only screen and (min-width:768px) and (max-width:1159.9px) {
     .contentContainer {
-        margin: calc((var(--maxWidth) / var(--baseValue)) * 1.8) calc((var(--maxWidth) / var(--baseValue)) * 16.5) calc((var(--maxWidth) / var(--baseValue)) * 5) calc((var(--maxWidth) / var(--baseValue)) * 2);
+        margin: calc((var(--maxWidth) / var(--baseValue)) * 1.86) calc((var(--maxWidth) / var(--baseValue)) * 23.5) calc((var(--maxWidth) / var(--baseValue)) * 5) calc((var(--maxWidth) / var(--baseValue)) * 1.945);
     }
 }
 /*                                                                                                                      DESKTOP */
 @media only screen and (min-width:1160px) {
     .contentContainer {
-        margin: calc((var(--maxWidth) / var(--baseValue)) * .86) calc((var(--maxWidth) / var(--baseValue)) * 22.25) calc((var(--maxWidth) / var(--baseValue)) * 2.2) calc((var(--maxWidth) / var(--baseValue)) * .94);
+        margin: calc((var(--maxWidth) / var(--baseValue)) * .87) calc((var(--maxWidth) / var(--baseValue)) * 22.25) calc((var(--maxWidth) / var(--baseValue)) * 2.2) calc((var(--maxWidth) / var(--baseValue)) * .945);
     }
 }
 /*                                                                                                                      ULTRAWIDE */
 @media only screen and (min-width:1440px) and (min-aspect-ratio:21/9) {
     .contentContainer {
-        margin: calc((var(--maxWidth) / var(--baseValue)) * .8) calc((calc(var(--maxWidth) / var(--baseValue)) * 28.6) + var(--margin)) calc((var(--maxWidth) / var(--baseValue)) * 2.5) calc((calc(var(--maxWidth) / var(--baseValue)) * 1) + var(--margin));
+        margin: calc((var(--maxWidth) / var(--baseValue)) * .87) calc((calc(var(--maxWidth) / var(--baseValue)) * 22) + var(--margin)) calc((var(--maxWidth) / var(--baseValue)) * 2.5) calc((calc(var(--maxWidth) / var(--baseValue)) * .96) + var(--margin));
     }
 }
 
