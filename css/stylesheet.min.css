@@ -36,6 +36,9 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
     box-sizing: border-box;
+    gap: 0 !important;
+    row-gap: 0 !important;
+    column-gap: 0 !important;
 }
 html {
     -webkit-user-select: none;
@@ -206,39 +209,16 @@ svg:hover {
 
 
 
-
-
-/* device specific after this */
-
-
-
+/* clean below this, make final GALLERY SETTING structure */
+/* clean below this, make final GALLERY SETTING structure */
+/* clean below this, make final GALLERY SETTING structure */
 
 
 
 
 @media only screen and (max-width:767.9px) {
-    * {
-        hyphenate-character: '-';
-        -webkit-hyphens: auto;
-        -ms-hyphens: auto;
-        hyphens: auto;
-    }
-    svg {
-        width: calc((var(--maxWidth) / var(--baseValue)) * .75); /* originally 1.5 */
-    }
-    #svgMail {
-        right: calc((var(--maxWidth) / var(--baseValue)) * 2.36); /* 4.72 */
-    }
-    #svgTel {
-        right: calc((var(--maxWidth) / var(--baseValue)) * 1.125); /* 2.25 */
-    }
-    #svgSocial {
-        right: calc((var(--maxWidth) / var(--baseValue)) * 0);
-    }
-    .navTR,
     .lightboxPrev,
     .lightboxNext,
-    .navBL,
     .navBR {
         height: calc((var(--maxWidth) / var(--baseValue)) * .75); /* originally 1.5 */
     }
@@ -262,22 +242,8 @@ svg:hover {
     }
 }
 @media only screen and (min-width:768px) and (max-width:1159.9px) {
-    svg {
-        width: calc((var(--maxWidth) / var(--baseValue)) * 2);
-    }
-    #svgMail {
-        right: calc((var(--maxWidth) / var(--baseValue)) * 6.3);
-    }
-    #svgTel {
-        right: calc((var(--maxWidth) / var(--baseValue)) * 3);
-    }
-    #svgSocial {
-        right: calc((var(--maxWidth) / var(--baseValue)) * 0);
-    }
-    .navTR,
     .lightboxPrev,
     .lightboxNext,
-    .navBL,
     .navBR {
         height: calc((var(--maxWidth) / var(--baseValue)) * 1); /* originally 2 */
     }
@@ -291,15 +257,156 @@ svg:hover {
     .lightboxNext {
         right: calc((var(--maxWidth) / var(--baseValue)) * 2);
     }
-    .lightboxCount {
-        height: calc((var(--maxWidth) / var(--baseValue)) * 3.5);
-    }
     .lightbox img {
         max-width: calc((var(--maxWidth) / var(--baseValue)) * 34);
-        max-height: calc(100vh - calc(var(--maxWidth) / var(--baseValue)) * 12);
+        max-height: calc(100vh - calc(var(--maxWidth) / var(--baseValue)) * 5);
     }
 }
 @media only screen and (min-width:1160px) {
+    .lightboxPrev,
+    .lightboxNext,
+    .navBR {
+        height: calc((var(--maxWidth) / var(--baseValue)) * 1);
+    }
+
+    .lightboxClose {
+        top: calc((var(--maxWidth) / var(--baseValue)) * 1);
+        right: calc((calc(var(--maxWidth) / var(--baseValue)) * 1) + var(--margin));
+    }
+    .lightboxPrev {
+        left: calc((calc(var(--maxWidth) / var(--baseValue)) * 1) + var(--margin));
+    }
+    .lightboxNext {
+        right: calc((calc(var(--maxWidth) / var(--baseValue)) * 1) + var(--margin));
+    }
+    .navBR {
+        bottom: calc((var(--maxWidth) / var(--baseValue)) * .8);
+        right: calc((calc(var(--maxWidth) / var(--baseValue)) * .85) + var(--margin));
+    }
+    .lightbox img {
+        max-width: calc((var(--maxWidth) / var(--baseValue)) * 38);
+        max-height: calc(100vh - calc(var(--maxWidth) / var(--baseValue)) * 5);
+    }
+}
+
+
+
+/* clean above this, make final GALLERY SETTING structure */
+/* clean above this, make final GALLERY SETTING structure */
+/* clean above this, make final GALLERY SETTING structure */
+
+
+
+
+
+
+
+
+/* FINISHED CODE AFTER THIS */
+/* FINISHED CODE AFTER THIS */
+/* FINISHED CODE AFTER THIS */
+/* FINISHED CODE AFTER THIS */
+/* FINISHED CODE AFTER THIS */
+
+/* LIGHTBOX SETTINGS */
+
+/* PHONE */
+@media only screen and (max-width:767.9px) {
+
+}
+/* TABLET */
+@media only screen and (min-width:768px) and (max-width:1159.9px) {
+    .lightboxCount {
+        height: calc((var(--maxWidth) / var(--baseValue)) * 1.6);
+        font-size: calc((var(--maxWidth) / var(--baseValue)) * .45); /* base value = x1 */
+        line-height: calc((var(--maxWidth) / var(--baseValue)) * .5);
+        margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 1);
+    }
+}
+/* DESKTOP */
+@media only screen and (min-width:1160px) {
+    .lightboxCount {
+        height: calc((var(--maxWidth) / var(--baseValue)) * 1.6);
+        font-size: calc((var(--maxWidth) / var(--baseValue)) * .45); /* base value = x1 */
+        line-height: calc((var(--maxWidth) / var(--baseValue)) * .5);
+        margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 1);
+    }
+}
+/* ULTRAWIDE */
+@media only screen and (min-width:1440px) and (min-aspect-ratio:21/9) {
+
+}
+
+/* NAV SETTINGS */
+
+/* PHONE */
+@media only screen and (max-width:767.9px) {
+    .navTR {
+        top: calc((var(--maxWidth) / var(--baseValue)) * .86);
+        right: calc((var(--maxWidth) / var(--baseValue)) * .98);
+    }
+    .navBL {
+        bottom: calc((var(--maxWidth) / var(--baseValue)) * .85);
+        left: calc((var(--maxWidth) / var(--baseValue)) * .95);
+    }
+    .navBR {
+        bottom: calc((var(--maxWidth) / var(--baseValue)) * .88);
+        right: calc((var(--maxWidth) / var(--baseValue)) * .88);
+    }
+    svg {
+        width: calc((var(--maxWidth) / var(--baseValue)) * .75);
+    }
+    #svgMail {
+        right: calc((var(--maxWidth) / var(--baseValue)) * 2.36);
+    }
+    #svgTel {
+        right: calc((var(--maxWidth) / var(--baseValue)) * 1.125);
+    }
+    #svgSocial {
+        right: calc((var(--maxWidth) / var(--baseValue)) * 0);
+    }
+}
+/* TABLET */
+@media only screen and (min-width:768px) and (max-width:1159.9px) {
+    .navTR {
+        top: calc((var(--maxWidth) / var(--baseValue)) * .725);
+        right: calc((var(--maxWidth) / var(--baseValue)) * .96);
+    }
+    .navBL {
+        bottom: calc((var(--maxWidth) / var(--baseValue)) * .72);
+        left: calc((var(--maxWidth) / var(--baseValue)) * .9);
+    }
+    .navBR {
+        bottom: calc((var(--maxWidth) / var(--baseValue)) * 1.69);
+        right: calc((var(--maxWidth) / var(--baseValue)) * .68);
+    }
+    svg {
+        width: calc((var(--maxWidth) / var(--baseValue)) * 2);
+    }
+    #svgMail {
+        right: calc((var(--maxWidth) / var(--baseValue)) * 6.3);
+    }
+    #svgTel {
+        right: calc((var(--maxWidth) / var(--baseValue)) * 3);
+    }
+    #svgSocial {
+        right: calc((var(--maxWidth) / var(--baseValue)) * 0);
+    }
+}
+/* DESKTOP */
+@media only screen and (min-width:1160px) {
+    .navTR {
+        top: calc((var(--maxWidth) / var(--baseValue)) * .87);
+        right: calc((var(--maxWidth) / var(--baseValue)) * .97);
+    }
+    .navBL {
+        bottom: calc((var(--maxWidth) / var(--baseValue)) * .85);
+        left: calc((var(--maxWidth) / var(--baseValue)) * .945);
+    }
+    .navBR {
+        bottom: calc((var(--maxWidth) / var(--baseValue)) * .835);
+        right: calc((var(--maxWidth) / var(--baseValue)) * .835);
+    }
     svg {
         width: calc((var(--maxWidth) / var(--baseValue)) * 1);
     }
@@ -312,222 +419,53 @@ svg:hover {
     #svgSocial {
         right: calc((var(--maxWidth) / var(--baseValue)) * 0);
     }
-    .navTR,
-    .lightboxPrev,
-    .lightboxNext,
-    .navBL,
-    .navBR {
-        height: calc((var(--maxWidth) / var(--baseValue)) * 1);
-    }
-    .navTR {
-        top: calc((var(--maxWidth) / var(--baseValue)) * .8);
-        right: calc((calc(var(--maxWidth) / var(--baseValue)) * 1) + var(--margin));
-    }
-    .lightboxClose {
-        top: calc((var(--maxWidth) / var(--baseValue)) * 1);
-        right: calc((calc(var(--maxWidth) / var(--baseValue)) * 1) + var(--margin));
-    }
-    .lightboxPrev {
-        left: calc((calc(var(--maxWidth) / var(--baseValue)) * 1) + var(--margin));
-    }
-    .lightboxNext {
-        right: calc((calc(var(--maxWidth) / var(--baseValue)) * 1) + var(--margin));
-    }
-    .navBL {
-        bottom: calc((var(--maxWidth) / var(--baseValue)) * .75);
-        left: calc((calc(var(--maxWidth) / var(--baseValue)) * .95) + var(--margin));
-    }/*
-    .lightboxCount {
-        height: calc((var(--maxWidth) / var(--baseValue)) * 1.75) !important;
-        font-size: calc((var(--maxWidth) / var(--baseValue)) * .45) !important;
-        line-height: calc((var(--maxWidth) / var(--baseValue)) * .5) !important;
-    }*/
-    .navBR {
-        bottom: calc((var(--maxWidth) / var(--baseValue)) * .8);
-        right: calc((calc(var(--maxWidth) / var(--baseValue)) * .85) + var(--margin));
-    }
-    .lightbox img {
-        max-width: calc((var(--maxWidth) / var(--baseValue)) * 38);
-        max-height: calc(100vh - calc(var(--maxWidth) / var(--baseValue)) * 6);
-    }
 }
-
-
-
-
-
-
-
-/*                                                  NEW NEW NEW                                         */
-
-/* desktop */ /*                                                                    SEEMS FINE TO ME WITH THESE SIZES *//* ?????? desktop values exist twice? upward from here somewhere... *//* figure out before moving into "NAV (TOP RIGHT BOTTOM LEFT) SETTINGS " */
-
-/* copied down, a few lines from here
-@media only screen and (min-width:1160px) {
-    .navTR {
-        top: calc((var(--maxWidth) / var(--baseValue)) * .86);
-        right: calc((var(--maxWidth) / var(--baseValue)) * .97);
-    }
-    .navBL {
-        bottom: calc((var(--maxWidth) / var(--baseValue)) * .85);
-        left: calc((var(--maxWidth) / var(--baseValue)) * .94);
-    }
-    .navTR, .navBL {
-        height: calc((var(--maxWidth) / var(--baseValue)) * .75);
-    }
-    .lightboxCount {
-        height: calc((var(--maxWidth) / var(--baseValue)) * 2);
-        font-size: calc((var(--maxWidth) / var(--baseValue)) * .45);
-        line-height: calc((var(--maxWidth) / var(--baseValue)) * .5);
-        margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 1);
-    }
-}
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*                                                                                                                      NEW CODE AFTER THIS */
-/*                                                                                                                      NEW CODE AFTER THIS */
-/*                                                                                                                      NEW CODE AFTER THIS */
-
-/*                                                                                                                      NAV (TOP RIGHT BOTTOM LEFT) SETTINGS */
-
-/*                                                                                                                      PHONE */
-@media only screen and (max-width:767.9px) {
-    .navTR {
-        top: calc((var(--maxWidth) / var(--baseValue)) * .86);
-        right: calc((var(--maxWidth) / var(--baseValue)) * .97);
-    }
-    .navBL {
-        bottom: calc((var(--maxWidth) / var(--baseValue)) * .86);
-        left: calc((var(--maxWidth) / var(--baseValue)) * .96);
-    }
-    .navBR {
-        bottom: calc((var(--maxWidth) / var(--baseValue)) * .8);
-        right: calc((var(--maxWidth) / var(--baseValue)) * .75);
-    }
-}
-/*                                                                                                                      TABLET */
-@media only screen and (min-width:768px) and (max-width:1159.9px) {
-    .navTR {
-        top: calc((var(--maxWidth) / var(--baseValue)) * 1.86);
-        right: calc((var(--maxWidth) / var(--baseValue)) * 2.09);
-    }
-    .navBL {
-        bottom: calc((var(--maxWidth) / var(--baseValue)) * 1.6);
-        left: calc((var(--maxWidth) / var(--baseValue)) * 1.945);
-    }
-    .navBR {
-        bottom: calc((var(--maxWidth) / var(--baseValue)) * 1.65);
-        right: calc((var(--maxWidth) / var(--baseValue)) * 1.8);
-    }
-}
-/*                                                                                                                      DESKTOP */
-@media only screen and (min-width:1160px) {
-
-
-
-    /* up top, a few lines from here */
-    .navTR {
-        top: calc((var(--maxWidth) / var(--baseValue)) * .87);
-        right: calc((var(--maxWidth) / var(--baseValue)) * .99);
-    }
-    .navBL {
-        bottom: calc((var(--maxWidth) / var(--baseValue)) * .85);
-        left: calc((var(--maxWidth) / var(--baseValue)) * .945);
-    }
-    .navTR, .navBL {
-        height: calc((var(--maxWidth) / var(--baseValue)) * .75);
-    }
-    .lightboxCount {
-        height: calc((var(--maxWidth) / var(--baseValue)) * 2);
-        font-size: calc((var(--maxWidth) / var(--baseValue)) * .45); /* base value = 1 */
-        line-height: calc((var(--maxWidth) / var(--baseValue)) * .5);
-        margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 1);
-    }
-
-
-
-}
-/*                                                                                                                      ULTRAWIDE */
+/* ULTRAWIDE */
 @media only screen and (min-width:1440px) and (min-aspect-ratio:21/9) {
     .navTR {
         top: calc((var(--maxWidth) / var(--baseValue)) * .87);
         right: calc(calc((var(--maxWidth) / var(--baseValue)) * 1.02) + var(--margin));
     }
     .navBL {
-        bottom: calc((var(--maxWidth) / var(--baseValue)) * .82);
+        bottom: calc((var(--maxWidth) / var(--baseValue)) * .85);
         left: calc(calc((var(--maxWidth) / var(--baseValue)) * .96) + var(--margin));
+    }
+    .navBR {
+        bottom: calc((var(--maxWidth) / var(--baseValue)) * .85);
+        right: calc(calc((var(--maxWidth) / var(--baseValue)) * .835) + var(--margin));
     }
 }
 
+/* CONTENT CONTAINER SETTINGS */
 
-
-
-* {
-    gap: 0 !important;
-    row-gap: 0 !important;
-    column-gap: 0 !important;
-}
-
-
-
-
-
-/*                                                                                                                      CONTENT CONTAINER SETTINGS */
-
-/*                                                                                                                      PHONE */
+/* PHONE */
 @media only screen and (max-width:767.9px) {
     .contentContainer {
         margin: calc((var(--maxWidth) / var(--baseValue)) * .86) calc((var(--maxWidth) / var(--baseValue)) * 1) calc((var(--maxWidth) / var(--baseValue)) * 3) calc((var(--maxWidth) / var(--baseValue)) * .96);
     }
 }
-/*                                                                                                                      TABLET */
+/* TABLET */
 @media only screen and (min-width:768px) and (max-width:1159.9px) {
     .contentContainer {
         margin: calc((var(--maxWidth) / var(--baseValue)) * 1.86) calc((var(--maxWidth) / var(--baseValue)) * 23.5) calc((var(--maxWidth) / var(--baseValue)) * 5) calc((var(--maxWidth) / var(--baseValue)) * 1.945);
     }
 }
-/*                                                                                                                      DESKTOP */
+/* DESKTOP */
 @media only screen and (min-width:1160px) {
     .contentContainer {
         margin: calc((var(--maxWidth) / var(--baseValue)) * .87) calc((var(--maxWidth) / var(--baseValue)) * 22.25) calc((var(--maxWidth) / var(--baseValue)) * 2.2) calc((var(--maxWidth) / var(--baseValue)) * .945);
     }
 }
-/*                                                                                                                      ULTRAWIDE */
+/* ULTRAWIDE */
 @media only screen and (min-width:1440px) and (min-aspect-ratio:21/9) {
     .contentContainer {
         margin: calc((var(--maxWidth) / var(--baseValue)) * .87) calc((calc(var(--maxWidth) / var(--baseValue)) * 22) + var(--margin)) calc((var(--maxWidth) / var(--baseValue)) * 2.5) calc((calc(var(--maxWidth) / var(--baseValue)) * .96) + var(--margin));
     }
 }
 
-/*                                                                                                                      GRID SETTINGS */
+/* GRID SETTINGS */
 
-/*                                                                                                                      PHONE */
+/* PHONE */
 @media only screen and (max-width:767.9px) {
     .gridContainer:nth-of-type(1) {
         padding-top: calc((var(--maxWidth) / var(--baseValue)) * 2.5); /* took a guess, fix */
@@ -554,7 +492,7 @@ svg:hover {
         grid-template-rows: repeat(241, calc(var(--maxWidth) / var(--baseValue)));
     }
 }
-/*                                                                                                                      ALLL OTHER DEVICES */
+/* ALL BUT PHONE */
 @media only screen and (min-width:768px) {
     .gridContainer:not(:nth-of-type(1)) {
         margin-top: calc((var(--maxWidth) / var(--baseValue)) * 14);
@@ -569,28 +507,30 @@ svg:hover {
         grid-template-rows: repeat(56, calc(var(--maxWidth) / var(--baseValue)));
     }
     .gartenweg {
-        grid-template-rows: repeat(115, calc(var(--maxWidth) / var(--baseValue))); /* 118 as fix, but fix padding bottom after all projects */
+        grid-template-rows: repeat(115, calc(var(--maxWidth) / var(--baseValue)));
     }
     .halle_8 {
         grid-template-rows: repeat(150, calc(var(--maxWidth) / var(--baseValue)));
     }
 }
-/*                                                                                                                      TABLET */
+/* TABLET */
 @media only screen and (min-width:768px) and (max-width:1159.9px) {
+    /*
     .container {
         margin: 0 calc((var(--maxWidth) / var(--baseValue)) * 1);
     }
+        */
     .gridContainer:nth-of-type(1) {
         padding-top: calc((var(--maxWidth) / var(--baseValue)) * 1);
     }
     .gridContainer:nth-of-type(5) {
-        padding-bottom: calc((var(--maxWidth) / var(--baseValue)) * 5.4);
+        padding-bottom: calc((var(--maxWidth) / var(--baseValue)) * 5.4); /* 2.7 like on desktop, but anyway, kill ipad sizes and use desktop sizes */
     }
 }
-/*                                                                                                                      DESKTOP */
+/* DESKTOP */
 @media only screen and (min-width:1160px) {
     .gridContainer:nth-of-type(1) {
-            padding-top: calc((var(--maxWidth) / var(--baseValue)) * 1); /* default was 3, 1 is also good, 0 as a test */
+            padding-top: calc((var(--maxWidth) / var(--baseValue)) * 1);
         }
     .gridContainer:nth-of-type(5) {
         padding-bottom: calc((var(--maxWidth) / var(--baseValue)) * 2.7);
@@ -598,15 +538,20 @@ svg:hover {
 }
 @media only screen and (min-width:1160px) and (min-aspect-ratio:21/9) {
     .container {
-        /* changed form margin to padding to allow scrolling from all positions */
         padding: 0 var(--margin);
     }
 }
 
-/*                                                                                                                      FONT SETTINGS */
+/* FONT SETTINGS */
 
-/*                                                                                                                      PHONE */
+/* PHONE */
 @media only screen and (max-width:767.9px) {
+    * {
+        hyphenate-character: '-';
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+    }
     .fontS {
         font-size: calc((var(--maxWidth) / var(--baseValue)) * .45); /* base value = x1 */
         line-height: calc((var(--maxWidth) / var(--baseValue)) * .5);
@@ -623,7 +568,7 @@ svg:hover {
         margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 1);
     }
 }
-/*                                                                                                                      TABLET */
+/* TABLET */
 @media only screen and (min-width:768px) and (max-width:1159.9px) {
     .fontS {
         font-size: calc((var(--maxWidth) / var(--baseValue)) * .45); /* base value = x1 */
@@ -640,8 +585,13 @@ svg:hover {
         line-height: calc((var(--maxWidth) / var(--baseValue)) * 1.5);
         margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 1);
     }
+    .navTR.fontM, .navBL.fontM { /* no space bweteen the two classes for correct implmentation */
+        font-size: calc((var(--maxWidth) / var(--baseValue)) * 1.35); /* base value x3 */
+        line-height: calc((var(--maxWidth) / var(--baseValue)) * 1.5);
+        margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 1);
+    }
 }
-/*                                                                                                                      DESKTOP */
+/* DESKTOP */
 @media only screen and (min-width:1160px) {
     .fontS {
         font-size: calc((var(--maxWidth) / var(--baseValue)) * .45); /* base value = x1 */
@@ -669,7 +619,7 @@ svg:hover {
         margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 4);
     }
 }
-/*                                                                                                                      ULTRAWIDE */
+/* ULTRAWIDE */
 @media only screen and (min-width:1440px) and (min-aspect-ratio:21/9) {
     .fontS {
         font-size: calc((var(--maxWidth) / var(--baseValue)) * .45); /* base value = x1 */
@@ -688,9 +638,9 @@ svg:hover {
     }
 }
 
-/*                                                                                                                      ROOT SETTINGS */
+/* ROOT SETTINGS */
 
-/*                                                                                                                      PHONE */
+/* PHONE */
 @media only screen and (max-width:767.9px) {
     :root {
         --baseValue: 16;
@@ -698,15 +648,18 @@ svg:hover {
         --margin: 0vw;
     }
 }
-/*                                                                                                                      TABLET */
+/* TABLET */
 @media only screen and (min-width:768px) and (max-width:1159.9px) {
     :root {
         --baseValue: 44;
+        /*
         --maxWidth: calc(100vw - calc((100vw / var(--baseValue)) * 2));
+        */
+        --maxWidth: 100vw;
         --margin: 0vw;
     }
 }
-/*                                                                                                                      DESKTOP */
+/* DESKTOP */
 @media only screen and (min-width:1160px) {
     :root {
         --baseValue: 44;
@@ -714,7 +667,7 @@ svg:hover {
         --margin: 0vw;
     }
 }
-/*                                                                                                                      ULTRAWIDE */
+/* ULTRAWIDE */
 @media only screen and (min-width:1440px) and (min-aspect-ratio:21/9) {
     :root {
         --baseValue: 44;
@@ -726,6 +679,69 @@ svg:hover {
     }
 }
 
+/* STICKY CONTAINER SETTINGS */
+
+/* sticks text baseline to bottom end of container */
+.stickyContainer.fontL { /* no space bweteen the two classes for correct implmentation */
+    margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * -0.28);
+    margin-top: calc((var(--maxWidth) / var(--baseValue)) * -0.28);
+}
+.stickyContainer.fontM { /* no space bweteen the two classes for correct implmentation */
+    margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * -0.14);
+    margin-top: calc((var(--maxWidth) / var(--baseValue)) * -0.14);
+}
+.stickyContainer.fontS { /* no space bweteen the two classes for correct implmentation */
+    margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * -0.1);
+    margin-top: calc((var(--maxWidth) / var(--baseValue)) * -0.1);
+}
+/* PHONE */
+@media only screen and (max-width:767.9px) {
+    .stickyContainer.fontL {
+        top: calc((var(--maxWidth) / var(--baseValue)) * .72);
+    }
+    .stickyContainer.fontM {
+        top: calc((var(--maxWidth) / var(--baseValue)) * 0.87);
+    }
+    .stickyContainer.fontS {
+        top: calc((var(--maxWidth) / var(--baseValue)) * .91);
+    }
+}
+/* TABLET */
+@media only screen and (min-width:768px) and (max-width:1159.9px) {
+    .stickyContainer.fontL {
+        top: calc((var(--maxWidth) / var(--baseValue)) * .72);
+    }
+    .stickyContainer.fontM {
+        top: calc((var(--maxWidth) / var(--baseValue)) * 0.87);
+    }
+    .stickyContainer.fontS {
+        top: calc((var(--maxWidth) / var(--baseValue)) * .91);
+    }
+}
+/* DESKTOP */
+@media only screen and (min-width:1160px) {
+    .stickyContainer.fontL {
+        top: calc((var(--maxWidth) / var(--baseValue)) * .71);
+    }
+    .stickyContainer.fontM {
+        top: calc((var(--maxWidth) / var(--baseValue)) * 0.86);
+    }
+    .stickyContainer.fontS {
+        top: calc((var(--maxWidth) / var(--baseValue)) * .9);
+    }
+}
+/* ULTRAWIDE */
+@media only screen and (min-width:1440px) and (min-aspect-ratio:21/9) {
+    .stickyContainer.fontL {
+        top: calc((var(--maxWidth) / var(--baseValue)) * .74);
+    }
+    .stickyContainer.fontM {
+        top: calc((var(--maxWidth) / var(--baseValue)) * 0.87);
+    }
+    .stickyContainer.fontS {
+        top: calc((var(--maxWidth) / var(--baseValue)) * .92);
+    }
+}
 
 
 
@@ -737,8 +753,7 @@ svg:hover {
 
 
 
-
-
+/* move these two up top, where general css is: */
 
 .contentContainer {
     position: absolute;
@@ -753,136 +768,20 @@ svg:hover {
 }
 
 
-/* implement this for all devices!!!! its great */
-/* sticks text baseline to bottom end of container, desktop only */
-.stickyContainer.fontL { /* no space bweteen the two classes for correct implmentation*/
-    margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * -0.28);
-    margin-top: calc((var(--maxWidth) / var(--baseValue)) * -0.28);
-}
-.stickyContainer.fontM { /* no space bweteen the two classes for correct implmentation*/
-    margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * -0.14);
-    margin-top: calc((var(--maxWidth) / var(--baseValue)) * -0.14);
-}
-.stickyContainer.fontS { /* no space bweteen the two classes for correct implmentation*/
-    margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * -0.1);
-    margin-top: calc((var(--maxWidth) / var(--baseValue)) * -0.1);
-}
 
-/* also add this     stickyText.style.top = "calc((var(--maxWidth) / var(--baseValue)) * 1)";
-    for each device as fontL spacing from top is too large, sollte wie navTR / BR sein. 
-
-    example: */
-
-.stickyContainer.fontL {
-    top: calc((var(--maxWidth) / var(--baseValue)) * .7); /* ungefähr */
-}
-.stickyContainer.fontM {
-    top: calc((var(--maxWidth) / var(--baseValue)) * 0.87); /* übernehmen von TR / BL */
-}
-.stickyContainer.fontS {
-    top: calc((var(--maxWidth) / var(--baseValue)) * 1); /* ungefähr */
-}
 
 /* todo
 
 info / impressum spacing from bottom end, overlap with info / portfolio, add spacing of 1 grid Square, change CONTENT CONTAINER SETTINGS to padding instead of margin fixes ability to add this spacing.???
 
-font line height, desktop fixed, adapt other devices
-font space from corners moving when resizing, all devices fixed, double check from windows, icons bottom left remaining on all devices,  sub pixel spacing
+spacing from container containing images from projects seems to have a space from right edge, one pixel or so, can be seen on edge near "tim ott" top right, when touching image
 
 SCROLLBAR HAS PADDING FROM LEFT SIDE ON IPAD SIZE DEVICES, double check after fix!!!
-
-
-
-FUCK CURRENT IPAD STYLING, DESKTOP ÜBERNEHMEN, SCHEISSE VOM RAND HIER, WEG DAMIT
 
 abstand von oberstem, also padding top von erstem projekt zu schrift, TR, muss derselbe sein wie abstand zwischen oberem bildschirmrand und TR, subpixel dingens, DITO ZU UNTERST, LETZTES PROJEKT
 PROBLEM ENTSTAND DURCH RANDOMIZER, VORHER WENIGER SICHTBAR WEIL KEIN BILD IN NÄHE
 randomizer anders einstellen, nur die projekte die passen als erstes definieren als random...!
 current top fix: suche:     default was 3, 1 is also good, 0 as a test     im css, bottom remains
-
-update, jan 6., font size on all devices fine. perhaps adjust nav size, but just perhaps
-    mobile
-
-        nL, cL 1.35, 1.5
-        nM, cM, nS, cS .675, .75
-
-    tablet
-
-        nL, cL 1.8, 2
-        nM, cM, nS, cS .9, 1
-
-    desktop & ultrawide
-
-        cL 1.8, 2
-        nL, nM, cM .9, 1
-        nS, cS .45, .5
-
-        */
-        /* pairs 
-
-        phone
-        
-
-                            .navFontL,
-                            .contentFontL {
-                                font-size: calc((var(--maxWidth) / var(--gridWidth)) * 1.35);
-                                line-height: calc((var(--maxWidth) / var(--gridWidth)) * 1.5);
-                                margin-bottom: calc((var(--maxWidth) / var(--gridWidth)) * 1)
-                            }
-
-                            .navFontM,
-                            .contentFontM,
-                            .navFontS,
-                            .contentFontS {
-                                font-size: calc((var(--maxWidth) / var(--gridWidth)) * .675);
-                                line-height: calc((var(--maxWidth) / var(--gridWidth)) * .75);
-                                margin-bottom: calc((var(--maxWidth) / var(--gridWidth)) * 1)
-                            }
-        
-
-tablet
-                            .navFontL,
-                            .contentFontL {
-                                font-size: calc((var(--maxWidth) / var(--gridWidth)) * 1.8);
-                                line-height: calc((var(--maxWidth) / var(--gridWidth)) * 2);
-                                margin-bottom: calc((var(--maxWidth) / var(--gridWidth)) * 1)
-                            }
-
-                            .navFontM,
-                            .contentFontM,
-                            .navFontS,
-                            .contentFontS {
-                                font-size: calc((var(--maxWidth) / var(--gridWidth)) * .9);
-                                line-height: calc((var(--maxWidth) / var(--gridWidth)) * 1);
-                                margin-bottom: calc((var(--maxWidth) / var(--gridWidth)) * 1)
-                            }
-
-
-        desktop
-
-                                    .contentFontL {
-                                font-size: calc((var(--maxWidth) / var(--gridWidth)) * 1.8);
-                                line-height: calc((var(--maxWidth) / var(--gridWidth)) * 2);
-                                margin-bottom: calc((var(--maxWidth) / var(--gridWidth)) * 1)
-                            }
-
-                            .navFontL,
-                            .navFontM,
-                            .contentFontM {
-                                font-size: calc((var(--maxWidth) / var(--gridWidth)) * .9);
-                                line-height: calc((var(--maxWidth) / var(--gridWidth)) * 1);
-                                margin-bottom: calc((var(--maxWidth) / var(--gridWidth)) * 1)
-                            }
-
-                            .navFontS,
-                            .contentFontS {
-                                font-size: calc((var(--maxWidth) / var(--gridWidth)) * .45);
-                                line-height: calc((var(--maxWidth) / var(--gridWidth)) * .5);
-                                margin-bottom: calc((var(--maxWidth) / var(--gridWidth)) * 1)
-                            }
-
-
 
 
         */

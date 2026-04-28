@@ -149,7 +149,7 @@
             sqOverlayStyle.id = 'sq-overlay';
             sqOverlayStyle.textContent = `
                 .SQ {
-                    background-color: rgba(0, 255, 0, .2);
+                    background-color: rgba(0, 255, 0, .15);
                     z-index: 99;
                     position: fixed;
                     user-select: none;
@@ -158,8 +158,8 @@
                     height: calc(100vh - calc((var(--maxWidth) / var(--baseValue)) * 2));
                     margin: calc((var(--maxWidth) / var(--baseValue)) * 1);
                 }
-                div, a, svg, p, img {
-                    background-color: rgba(255, 0, 0, .1);
+                div, a, svg, p, img, * {
+                    background-color: rgba(255, 0, 0, .15);
                 }
             `;
             document.head.appendChild(sqOverlayStyle);
@@ -175,7 +175,6 @@
 </script>
 
 
-        <!--
         <script>
             document.addEventListener('DOMContentLoaded', () => {
             const container = document.querySelector('.container');
@@ -192,7 +191,10 @@
             items.forEach(item => container.appendChild(item));
         });
         </script>
-        -->
+                <!--
+
         <script src="js/editor.js"></script>
+                -->
+
     </body>
 </html>
