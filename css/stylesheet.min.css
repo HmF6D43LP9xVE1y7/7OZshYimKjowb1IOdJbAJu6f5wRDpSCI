@@ -170,6 +170,10 @@ svg:hover {
     display: grid;
     grid-template-columns: repeat(var(--baseValue), calc(var(--mWbV)));
 }
+/* for info and impressum page */
+.contentContainer {
+    position: absolute;
+}
 .lightbox {
     background-color: var(--white);
     position: fixed;
@@ -378,17 +382,17 @@ svg:hover {
         left: calc((var(--mWbV)) * .9);
     }
     .navBR {
-        bottom: calc((var(--mWbV)) * 1.69);
-        right: calc((var(--mWbV)) * .68);
+        bottom: calc((var(--mWbV)) * 1.28);
+        right: calc((var(--mWbV)) * .78);
     }
     svg {
-        width: calc((var(--mWbV)) * 2);
+        width: calc((var(--mWbV)) * 1.5);
     }
     #svgMail {
-        right: calc((var(--mWbV)) * 6.3);
+        right: calc((var(--mWbV)) * 4.725);
     }
     #svgTel {
-        right: calc((var(--mWbV)) * 3);
+        right: calc((var(--mWbV)) * 2.25);
     }
     #svgSocial {
         right: calc((var(--mWbV)) * 0);
@@ -442,26 +446,26 @@ svg:hover {
 /* PHONE */
 @media only screen and (max-width:767.9px) {
     .contentContainer {
-        margin: calc((var(--mWbV)) * .86) calc((var(--mWbV)) * 1) calc((var(--mWbV)) * 3) calc((var(--mWbV)) * .96);
+        padding: calc((var(--mWbV)) * .86) calc((var(--mWbV)) * 1) calc((var(--mWbV)) * 1.225) calc((var(--mWbV)) * .96);
     }
 }
 /* TABLET */
 @media only screen and (min-width:768px) and (max-width:1159.9px) {
     .contentContainer {
-        margin: calc((var(--mWbV)) * 1.86) calc((var(--mWbV)) * 23.5) calc((var(--mWbV)) * 5) calc((var(--mWbV)) * 1.945);
+        padding: calc((var(--mWbV)) * .87) calc((var(--mWbV)) * 22.25) calc((var(--mWbV)) * 1.78) calc((var(--mWbV)) * .945);
     }
 }
 /* DESKTOP */
 @media only screen and (min-width:1160px) {
     .contentContainer {
-        margin: calc((var(--mWbV)) * .87) calc((var(--mWbV)) * 22.25) calc((var(--mWbV)) * 2.2) calc((var(--mWbV)) * .945);
+        padding: calc((var(--mWbV)) * .87) calc((var(--mWbV)) * 22.25) calc((var(--mWbV)) * 1.225) calc((var(--mWbV)) * .945);
     }
 }
 /* ULTRAWIDE */
 @media only screen and (min-width:1440px) and (min-aspect-ratio:21/9) {
     .contentContainer {
-        margin: calc((var(--mWbV)) * .87) calc((calc(var(--mWbV)) * 22) + var(--margin)) calc((var(--mWbV)) * 2.5) calc((calc(var(--mWbV)) * .96) + var(--margin));
-    }
+        padding: calc((var(--mWbV)) * .87) calc((calc(var(--mWbV)) * 22.25) + var(--margin)) calc((var(--mWbV)) * 1.225) calc((calc(var(--mWbV)) * .96) + var(--margin));
+    } /* needs fixing */
 }
 
 /* GRID SETTINGS */
@@ -469,13 +473,13 @@ svg:hover {
 /* PHONE */
 @media only screen and (max-width:767.9px) {
     .gridContainer:nth-of-type(1) {
-        padding-top: calc((var(--mWbV)) * 2.5); /* took a guess, fix */
+        padding-top: calc((var(--mWbV)) * 2.48); /* guessed value, could be .1 smaller or so, fix worth it? perhaps not */
     }
     .gridContainer:not(:nth-of-type(1)) {
         margin-top: calc((var(--mWbV)) * 16);
     }
     .gridContainer:nth-of-type(5) {
-        padding-bottom: calc((var(--mWbV)) * 2.4); /* took a guess, fix */
+        padding-bottom: calc((var(--mWbV)) * 2.45); /* guessed value, could be .1 smaller or so, fix worth it? perhaps not */
     }
     .buechehof {
         grid-template-rows: repeat(218, calc(var(--mWbV)));
@@ -572,7 +576,7 @@ svg:hover {
 }
 /* TABLET */
 @media only screen and (min-width:768px) and (max-width:1159.9px) {
-    .navTR.fontM, .navBL.fontM { /* no space bweteen the two classes for correct implmentation */
+    .navTR.fontM, .navBL.fontM { /* no space bweteen classes for correct implmentation */
         font-size: calc((var(--mWbV)) * 1.35); /* base value x3 */
         line-height: calc((var(--mWbV)) * 1.5);
         margin-bottom: calc((var(--mWbV)) * 1);
@@ -639,15 +643,15 @@ svg:hover {
 /* STICKY CONTAINER SETTINGS */
 
 /* sticks text baseline to bottom end of container */
-.stickyContainer.fontL { /* no space bweteen the two classes for correct implmentation */
+.stickyContainer.fontL { /* no space bweteen classes for correct implmentation */
     margin-bottom: calc((var(--mWbV)) * -0.28);
     margin-top: calc((var(--mWbV)) * -0.28);
 }
-.stickyContainer.fontM { /* no space bweteen the two classes for correct implmentation */
+.stickyContainer.fontM { /* no space bweteen classes for correct implmentation */
     margin-bottom: calc((var(--mWbV)) * -0.14);
     margin-top: calc((var(--mWbV)) * -0.14);
 }
-.stickyContainer.fontS { /* no space bweteen the two classes for correct implmentation */
+.stickyContainer.fontS { /* no space bweteen classes for correct implmentation */
     margin-bottom: calc((var(--mWbV)) * -0.1);
     margin-top: calc((var(--mWbV)) * -0.1);
 }
@@ -655,18 +659,19 @@ svg:hover {
                                                                                 /* can the following values be compiled into one rule for L M and S???
                                                                                 can the following values be compiled into one rule for L M and S???
                                                                                 can the following values be compiled into one rule for L M and S???
-                                                                                almost similar values... */
+                                                                                almost similar values... 
+                                                                                DOUBLE CHECK WITH OTHER BROWSERS, SCREENSIZES AND OPERATING SYSTEMS*/
 
 /* PHONE */
 @media only screen and (max-width:767.9px) {
     .stickyContainer.fontL {
-        top: calc((var(--mWbV)) * .72);
+        top: calc((var(--mWbV)) * 2.2);
     }
     .stickyContainer.fontM {
-        top: calc((var(--mWbV)) * 0.87);
+        top: calc((var(--mWbV)) * 2.35);
     }
     .stickyContainer.fontS {
-        top: calc((var(--mWbV)) * .91);
+        top: calc((var(--mWbV)) * 2.4);
     }
 }
 /* TABLET */
@@ -675,7 +680,7 @@ svg:hover {
         top: calc((var(--mWbV)) * .72);
     }
     .stickyContainer.fontM {
-        top: calc((var(--mWbV)) * 0.87);
+        top: calc((var(--mWbV)) * .87);
     }
     .stickyContainer.fontS {
         top: calc((var(--mWbV)) * .91);
@@ -687,10 +692,10 @@ svg:hover {
         top: calc((var(--mWbV)) * .71);
     }
     .stickyContainer.fontM {
-        top: calc((var(--mWbV)) * 0.86);
+        top: calc((var(--mWbV)) * .87);
     }
     .stickyContainer.fontS {
-        top: calc((var(--mWbV)) * .9);
+        top: calc((var(--mWbV)) * .91);
     }
 }
 /* ULTRAWIDE */
@@ -699,52 +704,18 @@ svg:hover {
         top: calc((var(--mWbV)) * .74);
     }
     .stickyContainer.fontM {
-        top: calc((var(--mWbV)) * 0.87);
+        top: calc((var(--mWbV)) * .87);
     }
     .stickyContainer.fontS {
-        top: calc((var(--mWbV)) * .92);
+        top: calc((var(--mWbV)) * .91);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-/* move these two up top, where general css is: */
-
-.contentContainer {
-    position: absolute;
-}
-
-
-.center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-
 
 
 /* todo
 
-info / impressum spacing from bottom end, overlap with info / portfolio, add spacing of 1 grid Square, change CONTENT CONTAINER SETTINGS to padding instead of margin fixes ability to add this spacing.???
-
 spacing from container containing images from projects seems to have a space from right edge, one pixel or so, can be seen on edge near "tim ott" top right, when touching image
 
 SCROLLBAR HAS PADDING FROM LEFT SIDE ON IPAD SIZE DEVICES, double check after fix!!!
-
-abstand von oberstem, also padding top von erstem projekt zu schrift, TR, muss derselbe sein wie abstand zwischen oberem bildschirmrand und TR, subpixel dingens, DITO ZU UNTERST, LETZTES PROJEKT
-PROBLEM ENTSTAND DURCH RANDOMIZER, VORHER WENIGER SICHTBAR WEIL KEIN BILD IN NÄHE
-randomizer anders einstellen, nur die projekte die passen als erstes definieren als random...!
-current top fix: suche:     default was 3, 1 is also good, 0 as a test     im css, bottom remains
-
 
         */
