@@ -529,7 +529,7 @@ svg:hover {
         padding-top: calc((var(--mWbV)) * 1);
     }
     .gridContainer:nth-of-type(5) {
-        padding-bottom: calc((var(--mWbV)) * 5.4); /* 2.7 like on desktop, but anyway, kill ipad sizes and use desktop sizes */
+        padding-bottom: calc((var(--mWbV)) * 2.95);
     }
 }
 /* DESKTOP */
@@ -718,4 +718,6 @@ spacing from container containing images from projects seems to have a space fro
 
 SCROLLBAR HAS PADDING FROM LEFT SIDE ON IPAD SIZE DEVICES, double check after fix!!!
 
+
+content spacing from bottom, abstand 1 von "info" oder icons? entscheiden was schöner ist je nach positionierung von bildern / text unten rechts oder links
         */
